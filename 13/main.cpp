@@ -144,7 +144,7 @@ public:
             {
                 if (s[n] == arrStr[j][0][0])
                 {
-                    result = result + arrInt[j-6];
+                    result = result + arrInt[j-6]; // this can be written result += arrInt[j-6];
                 }
             }
         }
@@ -160,3 +160,29 @@ int main(){
     cin >> roman;
     cout << solution.romanToInt(roman);
 }
+
+/* #1 solution on leetcode uses the logic that if a smaller Roman Numeral precedes the next number, it is subtracted instead of added.  
+    So, make a branching if() for "result -= numeral" when that's the case, or "result += numeral" when the next number is bigger or there isn't a next number (else statement).
+
+    It also uses an...
+                        unordered_map<char, int> var;   // I don't know what this is, but it allows you to look up a char, and assign it a value. similar to the hash table?
+                        var['I'] = 1;
+                        var['V'] = 5;
+                        var['X'] = 10;
+                        ...
+                        var['M'] = 1000;
+
+                        int ans = 0;
+        
+                        for(int i = 0; i < s.length(); i++){
+                            if(var[s[i]] < var[s[i+1]]){
+                                ans -= var[s[i]];
+                            }
+                            else{
+                                ans += var[s[i]];
+                            }
+                        }
+                        return ans;
+                    }
+                };
+*/
