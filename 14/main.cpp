@@ -3,6 +3,8 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
+#include <cassert>
+#include <functional>
 
 using namespace std;
 
