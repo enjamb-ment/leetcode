@@ -5,6 +5,9 @@
 #include <numeric>
 #include <cassert>
 #include <functional>
+#include <limits>
+#include <sstream>
+
 
 using namespace std;
 
@@ -125,10 +128,14 @@ int main()
     vector<string> words;
     string input;
 
-    cout << "insert words into vector (\"ctrl+c\" to end): \n";
-    while (cin >> input && input != "") { 
+    cout << "insert words into vector (\"0\" to end): \n";
+    while (cin >> input && input != "0") { 
         words.push_back(input);
     }  
+
+    cin.clear();                                                   //These two things *clear* the status/error flag(s) of cin
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //and removes the last input(s) up to the most recent linebreak.  Note libraries <limits> and <sstream> were needed.
+
     cout << solution.longestCommonPrefix(words) << endl;
 
 }
