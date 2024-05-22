@@ -17,7 +17,7 @@ public:
 
         for (int i = 0; i < s.length()-1; i++)
         {
-             //score += abs(int(s[i]) - int(s[i+1])); // converting the string to int is apparently not necessary
+             //score += abs(int(s[i]) - int(s[i+1])); // converting the char to int is apparently not necessary
                score += abs(s[i] - s[i+1]);           // this does the same thing as the above.
         }
         return score;
