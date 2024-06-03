@@ -64,14 +64,31 @@ public:
         for (auto ch: s)                // for each <<char>> in (:) string s...
         {
             count += t[count] == ch;    // count = count + TRUE (1) when t[iterator] is equal to the looped character or count = count + FALSE (0) when not equal to looped character. 
-        }                               // how does this work with s="coaching" and t="coding"
+        }                               // how does this work with s="coaching" and t="coding":  takes # of characters in t that didn't match s...
         return t.size() - count;        // c...(+1) makes sense,
     }                                   // o...(+1) makes sense,
-};                                      // a...(0) makes sense, 
-                                        // c...(+1) ...?
-                                        // h...(0)
-                                        // i...(+1)
+};                                      // d...(0) makes sense, 
+                                        // i...(+1) ...?
                                         // n...(+1)
                                         // g...(+1) 
                                   //---------------
-                                        //       6 ... t.size() == 6 - count (6) = 0 != 4...
+                                        //       5 ... t.size() == 6 - count (6) = 0 != 4...
+                                        //       unless once it found it once, it doesn't try again... hum.
+
+
+// LeetCode two pointer answer that makes a lot more sense to me:
+class Solution2 {
+public:
+    int appendCharacters(string s, string t) {
+        int i = 0, j = 0;  // Start both pointers at the beginning of s and t
+        
+        while (i < s.length() && j < t.length()) {  // Continue until one of the strings is fully scanned
+            if (s[i] == t[j]) {  // If characters match
+                j++;  // Move the pointer in t forward
+            }
+            i++;  // Always move the pointer in s forward
+        }
+        
+        return t.length() - j;  // The number of characters in t not matched in s
+    }
+};
