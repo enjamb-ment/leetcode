@@ -11,7 +11,11 @@
     An integer x is a multiple of k if there exists an integer n such that x = n * k. 0 is always a multiple of k.
 
     
+<<<<<<< HEAD
     My answer uses brute force and doesn't account for all possible test cases.  In fact, for a very large vector, it will absolutely TLE (test case 95 on leetcode).
+=======
+    My answer uses brute force and doesn't account for all possible test cases.  In fact, for a very large vector, it will absolutely time out (test case 95 on leetcode).
+>>>>>>> 10a0429afeb4f28012490f6738c1d2b75225f46a
     That said... I did come up with it just about completely on my own.  Had to look up the "search" vector method.
 */
 
