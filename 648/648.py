@@ -5,6 +5,7 @@
 #
 # Return the sentence after the replacement.
 
+from typing import List
 
 class Solution:
     def replaceWords(self, dictionary: List[str], sentence: str) -> str:
@@ -31,25 +32,25 @@ class Solution:
         for j in range(len(s)):
             ans.append(s[j])
 
-        ans.append(s[])
+        ans.append(s[j])
         ans = ''.join(s)
 
         return ans
     
     
 class SolutionWorks:
-def replaceWords(self, dict: List[str], sentence: str) -> str:
-    roots = set(dict)
-    words = sentence.split()
-    result = []
+    def replaceWords(self, dict: List[str], sentence: str) -> str:
+        roots = set(dict)
+        words = sentence.split()
+        result = []
 
-    for word in words:
-        for i in range(len(word) + 1):
-            prefix = word[:i]
-            if prefix in roots:
-                result.append(prefix)
-                break
-        else:
-            result.append(word)
+        for word in words:
+            for i in range(len(word) + 1):
+                prefix = word[:i]
+                if prefix in roots:
+                    result.append(prefix)
+                    break
+            else:
+                result.append(word)
 
-    return ' '.join(result)
+        return ' '.join(result)
